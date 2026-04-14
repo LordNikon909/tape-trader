@@ -31,6 +31,9 @@ export default async function RootLayout({
           <Navbar session={session} />
           {children}
         </header>
+        <footer className="py-12 text-center w-fit mx-auto text-md font-light text-brand-400">
+          <p>&#169; Tape Trader 2026</p>
+        </footer>
       </body>
     </html>
   );
