@@ -9,7 +9,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 export default function Navbar({ session }: { session: Session | null }) {
   return (
-    <nav className="relative font-sans text-neutral-900 dark:text-neutral-100">
+    <nav className="relative font-sans text-neutral-900 bg-white/70 uppercase">
       <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
 
@@ -71,7 +71,7 @@ export default function Navbar({ session }: { session: Session | null }) {
                     <MenuItem>
                       <button
                         onClick={() => signOutAction()}
-                        className="block w-full text-left px-4 py-2 text-md text-rose-600 hover:bg-neutral-100"
+                        className="block w-full text-left px-4 py-2 text-md text-rose-600 hover:bg-neutral-100 uppercase"
                       >
                         Log Out
                       </button>

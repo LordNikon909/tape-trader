@@ -18,8 +18,8 @@ export default function LoginModal({
   const [isOpen, setIsOpen] = useState(false);
 
 const triggerStyles = variant === "button"
-    ? "rounded-xl bg-brand-600 px-4 py-2 text-md text-white shadow-sm hover:bg-brand-500 transition-colors"
-    : "px-3 py-2 text-md hover:text-brand-600 transition-colors font-medium";
+    ? "rounded-xl bg-brand-600 px-4 py-2 text-md text-white shadow-sm hover:bg-brand-500 transition-colors uppercase"
+    : "px-3 py-2 text-md hover:text-brand-600 transition-colors font-medium uppercase";
 
   return (
     <>
