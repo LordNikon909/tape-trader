@@ -1,27 +1,13 @@
-// We can import the type directly from our schema!
 import { tapes } from "@/db/schema";
+import TapeVisual from "./TapeVisual";
 
 type Tape = typeof tapes.$inferSelect;
 
-export default function TapeCard({ tape }: { tape: Tape }) {
+export default function Tape({ tape }: { tape: Tape }) {
   return (
     <div style={{ marginBottom: "40px" }}>
       <div>
-        {tape.image ? (
-          <img
-            src={tape.image}
-            alt={tape.title}
-            style={{
-              width: "450px",
-              height: "450px",
-              objectFit: "cover",
-            }}
-          />
-        ) : (
-          <div style={{ width: "450px", height: "450px", border: "1px solid #ccc", display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            No Cover Art
-          </div>
-        )}
+        <TapeVisual sceneId="VF2a1FdyNybFj6w6" />
       </div>
 
       <h2>
