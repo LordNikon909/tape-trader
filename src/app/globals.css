@@ -24,3 +24,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@theme {
+  --color-brand-50: #F6F0FF;
+  --color-brand-100: #EDDFFF;
+  --color-brand-200: #D9BFFF;
+  --color-brand-300: #BA8FFF;
+  --color-brand-400: #934FFF;
+  --color-brand-500: #690bff;
+  --color-brand-600: #4400B1; /* 600 - Primary */
+  --color-brand-700: #37008F;
+  --color-brand-800: #2E0075;
+  --color-brand-900: #1D004B;
+  --color-brand-950: #0F0028;
+}

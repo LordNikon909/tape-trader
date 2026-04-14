@@ -1,32 +1,90 @@
-import { signOut } from "@/auth";
+"use client";
+
+import { signOutAction } from "@/app/actions/auth";
 import LoginModal from "./LoginModal";
 import { Session } from "next-auth";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import Link from "next/link";
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 export default function Navbar({ session }: { session: Session | null }) {
   return (
-    <header>
-      <nav>
-        <div>TAPE TRADER</div>
+    <nav className="relative font-sans text-neutral-900 dark:text-neutral-100">
+      <div className="mx-auto px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between">
 
-        <div>
-          {session ? (
-            <div>
-              <span>Hello, {session.user?.name}</span>
-              <form
-                action={async () => {
-                  "use server";
-                  await signOut();
-                }}
-              >
-                <button type="submit">Sign Out</button>
-              </form>
+          {/* Logo Section */}
+          <div className="flex flex-1 items-center justify-start">
+            <Link href="/" className="flex shrink-0 items-center gap-2">
+              <span className="font-black italic tracking-tighter text-xl">TAPE TRADER</span>
+            </Link>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="flex items-center">
+            <div className="hidden sm:flex items-center gap-1">
+              {session && (
+                <>
+                  <Link href="/collection" className="px-3 py-2 text-md hover:text-brand-600 transition-colors">
+                    Collection
+                  </Link>
+                  <Link href="/listings" className="px-3 py-2 text-md hover:text-brand-600 transition-colors">
+                    Listings
+                  </Link>
+                </>
+              )}
+              <Link href="/about" className="px-3 py-2 text-md hover:text-brand-600 transition-colors">
+                About
+              </Link>
+              {!session && (
+                <LoginModal headerText="Log In" triggerText="Log In" variant="link" />
+              )}
             </div>
-          ) : (
-            <LoginModal />
-          )}
-        </div>
 
-      </nav>
-    </header>
+            {/* Right Side: Auth State */}
+            <div className="flex items-center border-l border-neutral-200 dark:border-neutral-800 ml-2 pl-5">
+              {session ? (
+                <Menu as="div" className="relative">
+                  <MenuButton className="flex items-center gap-3 focus:outline-none">
+                    <div className="h-10 w-10 rounded-full bg-brand-600 flex items-center justify-center text-white text-md">
+                      {session.user?.name?.charAt(0) || "U"}
+                    </div>
+                    <span className="hidden md:block text-md text-neutral-400 font-light">
+                      {session.user?.email}
+                    </span>
+                    <ChevronDownIcon
+                      className="h-7 w-7 text-neutral-300"
+                      aria-hidden="true"
+                    />
+                  </MenuButton>
+
+                  <MenuItems
+                    transition
+                    className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-neutral-200 ring-opacity-5 transition focus:outline-none data-closed:scale-95 data-closed:opacity-0"
+                  >
+                    <MenuItem>
+                      <Link href="/profile" className="block px-4 py-2 text-md text-neutral-700 hover:bg-neutral-100">
+                        Profile
+                      </Link>
+                    </MenuItem>
+                    <hr className="border-t border-neutral-200"></hr>
+                    <MenuItem>
+                      <button
+                        onClick={() => signOutAction()}
+                        className="block w-full text-left px-4 py-2 text-md text-rose-600 hover:bg-neutral-100"
+                      >
+                        Log Out
+                      </button>
+                    </MenuItem>
+                  </MenuItems>
+                </Menu>
+              ) : (
+                <LoginModal headerText="Sign Up" triggerText="Sign Up" variant="button" />
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }
