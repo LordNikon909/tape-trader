@@ -5,6 +5,7 @@ import LoginModal from "./LoginModal";
 import { Session } from "next-auth";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 export default function Navbar({ session }: { session: Session | null }) {
@@ -16,24 +17,29 @@ export default function Navbar({ session }: { session: Session | null }) {
           {/* Logo Section */}
           <div className="flex flex-1 items-center justify-start">
             <Link href="/" className="flex shrink-0 items-center gap-2">
-              <span className="font-black italic tracking-tighter text-xl">TAPE TRADER</span>
+              <Image
+                src="/images/logo.svg"
+                alt="Tape Trader"
+                width={50}
+                height={50}
+              />
             </Link>
           </div>
 
           {/* Navigation Links */}
           <div className="flex items-center">
-            <div className="hidden sm:flex items-center gap-1">
+            <div className="hidden sm:flex text-brand-600 items-center gap-1 underline decoration-brand-300 decoration-2 underline-offset-4">
               {session && (
                 <>
-                  <Link href="/collection" className="px-3 py-2 text-md hover:text-brand-600 transition-colors">
+                  <Link href="/collection" className="px-3 py-2 text-md hover:text-brand-400 hover:decoration-brand-200 transition-colors">
                     Collection
                   </Link>
-                  <Link href="/listings" className="px-3 py-2 text-md hover:text-brand-600 transition-colors">
+                  <Link href="/listings" className="px-3 py-2 text-md hover:text-brand-400 hover:decoration-brand-200 transition-colors">
                     Listings
                   </Link>
                 </>
               )}
-              <Link href="/about" className="px-3 py-2 text-md hover:text-brand-600 transition-colors">
+              <Link href="/about" className="px-3 py-2 text-md hover:text-brand-400 hover:decoration-brand-200 transition-colors">
                 About
               </Link>
               {!session && (
@@ -71,7 +77,7 @@ export default function Navbar({ session }: { session: Session | null }) {
                     <MenuItem>
                       <button
                         onClick={() => signOutAction()}
-                        className="block w-full text-left px-4 py-2 text-md text-rose-600 hover:bg-neutral-100 uppercase"
+                        className="block w-full text-left px-4 py-2 text-md text-rose-600 hover:bg-neutral-100"
                       >
                         Log Out
                       </button>

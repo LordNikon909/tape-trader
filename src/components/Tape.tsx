@@ -5,12 +5,12 @@ type Tape = typeof tapes.$inferSelect;
 
 export default function Tape({ tape }: { tape: Tape }) {
   return (
-    <div style={{ marginBottom: "40px" }}>
+    <div className="text-center w-fit mx-auto text-xl">
       <div>
         <TapeVisual sceneId="VF2a1FdyNybFj6w6" />
       </div>
 
-      <h2>
+      <h2 className="uppercase mb-4">
         <b>{tape.title}</b> by {tape.creatorName || "Unknown"}
       </h2>
 
