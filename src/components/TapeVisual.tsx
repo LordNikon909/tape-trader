@@ -1,12 +1,18 @@
-import Spline from '@splinetool/react-spline/next';
+import Spline from "@splinetool/react-spline/next";
 
 interface TapeVisualProps {
   sceneId: string;
+  width: string;
+  height: string;
 }
 
-export default function TapeVisual({ sceneId }: { sceneId: string }) {
+export default function TapeVisual({
+  sceneId,
+  width,
+  height,
+}: TapeVisualProps) {
   return (
-    <div style={{ position: 'relative', width: '600px', height: '600px', }}>
+    <div className="z-5 relative" style={{ width, height }}>
       <Spline
         scene={`https://prod.spline.design/${sceneId}/scene.splinecode`}
       />

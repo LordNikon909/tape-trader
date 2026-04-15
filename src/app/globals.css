@@ -42,3 +42,99 @@ body {
   --color-brand-900: #1D004B;
   --color-brand-950: #0F0028;
 }
+
+/* Custom CSS - refactor for later? */
+
+.mix {
+	width:  100%;
+	height:  100%;
+	display:  block;
+	position:  relative;
+}
+
+.hover-container {
+	height: 100%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.hovicon {
+    margin-top: -28px;
+    display: inline-block;
+    font-size: 45px;
+    line-height: 90px;
+    cursor: pointer;
+    width: 70%;
+    height: 70%;
+    border-radius: 100%;
+    position: relative;
+    text-decoration: none;
+    z-index: 0;
+}
+
+.hovicon:after {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    content:'';
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.hovicon:before {
+    font-size: 48px;
+    line-height: 90px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    display: block;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Effect 3 */
+ .hovicon.effect-3 {
+/*    box-shadow: 0 0 0 4px #fff;*/
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    transition: color 0.3s;
+    background: #d5d5d56b;
+}
+.hovicon.effect-3:after {
+    top: -2px;
+    left: -2px;
+    padding: 2px;
+    z-index: -1;
+    background: #4400b12e;
+    -webkit-transition: -webkit-transform 0.2s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.2s, opacity 0.3s;
+    transition: transform 0.2s, opacity 0.3s;
+}
+
+/* Effect 3b */
+ .hovicon.effect-3.sub-b,
+ .hovicon.effect-3.sub-b i {
+    color: #fff;
+}
+.mix:hover .hovicon.effect-3.sub-b,
+.mix:hover .hovicon.effect-3.sub-b i {
+    color: #f06060;
+}
+.hovicon.effect-3.sub-b:after {
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -ms-transform: scale(1.3);
+    transform: scale(1.3);
+    opacity: 0;
+}
+.mix:hover .hovicon.effect-3.sub-b:after {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
