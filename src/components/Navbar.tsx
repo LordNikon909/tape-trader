@@ -10,7 +10,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 export default function Navbar({ session }: { session: Session | null }) {
   return (
-    <nav className="relative font-sans text-neutral-900 bg-white/70 uppercase">
+    <nav className="z-5 fixed w-full top-0 font-sans text-neutral-900 bg-white/70 uppercase">
       <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
 

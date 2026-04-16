@@ -8,7 +8,7 @@ export default async function Home() {
 
   return (
     <main>
-      <section className="mt-10 text-center w-fit mx-auto font-light text-3xl relative z-4">
+      <section className="mt-25 text-center w-fit mx-auto font-light text-3xl relative z-4">
         <h1 className="mb-8">
           <Image
             src="/images/heroText.png"
@@ -29,6 +29,11 @@ export default async function Home() {
           <p>The vault is empty. Add your first tape to the DB!</p>
         )}
       </section>
+
+      <section>
+        <h2 className="font-header text-7xl">Recent Tapes</h2>
+      </section>
+
     </main>
   );
 }

@@ -26,7 +26,11 @@ body {
     linear-gradient(to right, #ededed 1px, transparent 1px),
     linear-gradient(to bottom, #ededed 1px, transparent 1px);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-attachment: fixed;
+}
+
+@theme {
+  --font-header: "Solvent", sans-serif;
 }
 
 @theme {
@@ -43,7 +47,7 @@ body {
   --color-brand-950: #0F0028;
 }
 
-/* Custom CSS - refactor for later? */
+/* TODO -- Custom CSS - refactor for later? */
 
 .mix {
 	width:  100%;

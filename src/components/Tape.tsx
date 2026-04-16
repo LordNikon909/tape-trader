@@ -4,12 +4,13 @@ import TapeVisual from "./TapeVisual";
 type Tape = typeof tapes.$inferSelect;
 
 export default function Tape({ tape }: { tape: Tape }) {
-  const visualSize = "600px"; // Make this a prop later
+  const visualSize = "600px"; // TODO -- Make this a prop later
 
   return (
     <div className="text-center w-fit mx-auto text-xl -mt-23">
       <a className="mix" href="#">
         <TapeVisual
+          // TODO -- remove hardcoding later
           sceneId="evLFn9Iv4hygE4oE"
           width={visualSize}
           height={visualSize}

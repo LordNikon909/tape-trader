@@ -25,8 +25,10 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={lexend.className}>
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/ejo4wgl.css" />
+      </head>
       <body style={{ fontFamily: 'inherit' }}>
-        {/* Navbar is now global! It stays at the top of every page. */}
         <header>
           <Navbar session={session} />
           {children}
