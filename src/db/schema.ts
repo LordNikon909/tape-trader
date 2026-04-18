@@ -1,7 +1,4 @@
-import { pgTable, unique, uuid, text, timestamp, foreignKey, boolean } from "drizzle-orm/pg-core"
-import { sql } from "drizzle-orm"
-
-
+import { pgTable, unique, uuid, text, timestamp, foreignKey, boolean, integer, jsonb } from "drizzle-orm/pg-core"
 
 export const users = pgTable("users", {
 	id: uuid().defaultRandom().primaryKey().notNull(),
@@ -52,7 +49,10 @@ export const tapes = pgTable("tapes", {
 	title: text().notNull(),
 	genre: text(),
 	creatorName: text("creator_name"),
-	image: text(),
+	splineId: text("spline_id").notNull(),
+	audioUrl: text("audio_url"),
+	duration: integer("duration"), // total seconds
+	timeline: jsonb("timeline").$type<{ time: number; title: string; artist?: string }[]>().default([]),
 	releaseDate: timestamp("release_date", { mode: 'string' }).defaultNow(),
 	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 });

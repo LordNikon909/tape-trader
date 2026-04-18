@@ -9,13 +9,13 @@ export default async function Home() {
   return (
     <main>
       <section className="mt-25 text-center w-fit mx-auto font-light text-3xl relative z-4">
-        <h1 className="mb-8">
+        <h1 className="mb-8 w-200">
           <Image
             src="/images/heroText.png"
             alt="Tape Trader"
             width={785}
             height={136}
-            style={{ width: '785px', height: 'auto' }}
+            className="w-full h-auto"
             priority
           />
         </h1>

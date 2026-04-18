@@ -1,5 +1,3 @@
-"use client";
-
 import { signOutAction } from "@/app/actions/auth";
 import LoginModal from "./LoginModal";
 import { Session } from "next-auth";
